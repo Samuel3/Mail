@@ -14,9 +14,10 @@
     "tutorial",
     "demo"
   ],
-  "author": "GitHub",
+  "author": "Samuel Mathes",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.7.8"
+    "electron": "~1.7.8",
+    "imap": "0.8.19"
   }
 }

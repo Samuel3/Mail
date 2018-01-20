@@ -1,6 +1,7 @@
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
+app.commandLine.appendSwitch('remote-debugging-port', '9222')
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 

@@ -3,17 +3,28 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <script src="jquery-3.2.1.min.js">
+      $(document).appendChild($("<h1/>").text("Hello"))
+    </script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
+    <h1 id="h1">Header</h1>
+    <div id="_id"></div>
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>
+    <script >
+     window.$ =require('./jquery-3.2.1.min')
+      $("#h1").html("Loading...")
+      var header = $("<div>", {"id": "header"});
+      $("#_id").add(header)
+      console.debug("Finished")
+
+      debugger
+
+    </script>
+
+
   </body>
 </html>
