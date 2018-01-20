@@ -1,30 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
-    <script src="jquery-3.2.1.min.js">
-      $(document).appendChild($("<h1/>").text("Hello"))
-    </script>
-  </head>
-  <body>
-    <h1 id="h1">Header</h1>
-    <div id="_id"></div>
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
-    <script >
-     window.$ =require('./jquery-3.2.1.min')
-      $("#h1").html("Loading...")
-      var header = $("<div>", {"id": "header"});
-      $("#_id").add(header)
-      console.debug("Finished")
+    <script>window.$ = window.jQuery = require('./js/jquery-3.2.1.min');</script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/datatables.min.js"></script>
 
-      debugger
+    <link rel="stylesheet" href="css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="css/jquery-ui.structure.min.css"/>
+    <link rel="stylesheet" href="css/jquery-ui.theme.min.css"/>
+    <link rel="stylesheet" href="css/datatables.min.css"/>
+</head>
+<body>
+<h1 id="h1">Header</h1>
+<div id="_id"></div>
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+</script>
+<script>
+    // require('./js/jquery-ui.min');
+    // var datatables = require('./js/datatables.min');
+    $("#h1").html("Loading...");
+    var header = $("<div>", {"id": "header"});
+    var mails = $("<div>", {"id": "mails"});
+    $("#_id").append(header)
+    $("#_id").append(mails)
 
-    </script>
+    $(document).ready(function () {
+        $(document).ready(function() {
+            var t = $('#example').DataTable();
+            var counter = 1;
 
+            $('#addRow').on( 'click', function () {
+                t.row.add( [
+                    counter +'.1',
+                    counter +'.2',
+                    counter +'.3',
+                    counter +'.4',
+                    counter +'.5'
+                ] ).draw( false );
 
-  </body>
+                counter++;
+            } );
+
+            // Automatically add a first row of data
+            $('#addRow').click();
+        } );
+    });
+//# sourceURL=test
+</script>
+<button id="addRow">Add new row</button>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+    </tr>
+    </tfoot>
+</table>
+</body>
 </html>

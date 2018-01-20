@@ -9,13 +9,13 @@
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
     "Electron",
-    "quick",
+    "Mail",
     "start",
     "tutorial",
     "demo"
   ],
   "author": "Samuel Mathes",
-  "license": "CC0-1.0",
+  "license": "No",
   "devDependencies": {
     "electron": "~1.7.8",
     "imap": "0.8.19"
